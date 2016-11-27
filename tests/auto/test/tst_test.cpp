@@ -1,36 +1,9 @@
-#include <QtTest>
-#include <QCoreApplication>
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
 
-// add necessary includes here
-
-class test : public QObject
+int main(int argc, char *argv[])
 {
-    Q_OBJECT
-
-public:
-    test();
-    ~test();
-
-private slots:
-    void test_case1();
-
-};
-
-test::test()
-{
-
+    QGuiApplication app(argc, argv);
+    QQmlApplicationEngine engine(QUrl("qrc:/qml/main.qml"));
+    return app.exec();
 }
-
-test::~test()
-{
-
-}
-
-void test::test_case1()
-{
-
-}
-
-QTEST_MAIN(test)
-
-#include "tst_test.moc"
